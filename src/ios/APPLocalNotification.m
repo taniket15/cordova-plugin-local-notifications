@@ -386,7 +386,7 @@ UNNotificationPresentationOptions const OptionAlert = UNNotificationPresentation
 - (void) request:(CDVInvokedUrlCommand*)command
 {
     UNAuthorizationOptions options =
-    (UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert);
+    (UNAuthorizationOptionNone);
 
     [_center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError* e) {
         [self check:command];
@@ -477,7 +477,7 @@ UNNotificationPresentationOptions const OptionAlert = UNNotificationPresentation
  */
 - (void) userNotificationCenter:(UNUserNotificationCenter *)center
         willPresentNotification:(UNNotification *)notification
-          withCompletionHandler:(void (^)(UNNotificationPresentationOptions))handler
+          withCompletionHandler:(void (^)(UNNotificationPresentationOptions UNNotificationPresentationOptionNone))handler;
 {
     UNNotificationRequest* toast = notification.request;
 
